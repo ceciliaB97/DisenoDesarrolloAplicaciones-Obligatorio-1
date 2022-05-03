@@ -3,9 +3,10 @@ package logica;
 import java.util.ArrayList;
 
 public class Producto {
+
     private String nombre;
     private int precio;
-   // private int stock;
+    // private int stock;
     private int unidades;
     private Proveedor proveedor;
     private ArrayList<Comision> comisiones = new ArrayList<>();
@@ -19,20 +20,18 @@ public class Producto {
         this.precio = precio;
         this.unidades = stock;
         this.proveedor = proveedor;
-        
-        proveedor.agregar(this);
     }
-    
-    public void agregarComision(Comision c){
-        if(!comisiones.contains(c)){
+
+    public void agregarComision(Comision c) {
+        if (!comisiones.contains(c)) {
             comisiones.add(c);
         }
     }
-    
-    public float getTotalComisiones(){
+
+    public float getTotalComisiones() {
         float totalComisiones = 0;
-        for(Comision c: comisiones){
-            float porcentajeValor = c.getPorcentaje()/100;
+        for (Comision c : comisiones) {
+            float porcentajeValor = c.getPorcentaje() / 100;
             totalComisiones += (porcentajeValor * precio);
         }
         return totalComisiones;
@@ -47,14 +46,13 @@ public class Producto {
     }
 
     public boolean setUnidades(int unidades) {
-        
-        if( validarUnidades( unidades)){
+
+        if (validarUnidades(unidades)) {
             this.unidades = unidades;
             return true;
         }
         return false;
     }
-    
 
     public Proveedor getProveedor() {
         return proveedor;
@@ -63,26 +61,25 @@ public class Producto {
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
+
     public float getPrecio() {
         return precio;
     }
 
     public boolean setPrecio(int precio) {
-        if(validarPrecio(precio)){
+        if (validarPrecio(precio)) {
             this.precio = precio;
             return true;
         }
         return false;
     }
 
-   
-
     public String getNombre() {
         return nombre;
     }
 
     public boolean setNombre(String nombre) {
-        if(validarNombre(nombre)){
+        if (validarNombre(nombre)) {
             this.nombre = nombre;
             return true;
         }
@@ -99,32 +96,32 @@ public class Producto {
     }
 
     public void setCodigo(int cod) {
-       codigo = cod;
+        codigo = cod;
     }
 
     public boolean validar() {
-        return validarNombre(nombre) && validarPrecio(precio) && validarUnidades(unidades) && proveedor!=null;
+        return validarNombre(nombre) && validarPrecio(precio) && validarUnidades(unidades) && proveedor != null;
     }
 
     private boolean validarUnidades(int unidades) {
-        if(unidades>0){
-            
+        if (unidades > 0) {
+
             return true;
         }
         return false;
-        
+
     }
 
     private boolean validarPrecio(int precio) {
-        return precio>0;
-       
+        return precio > 0;
+
     }
 
     private boolean validarNombre(String nombre) {
-        return nombre!=null && !nombre.trim().equals("");
-     }
+        return nombre != null && !nombre.trim().equals("");
+    }
 
     protected void modificarStock(int cantidad) {
-        unidades+=cantidad;
+        unidades += cantidad;
     }
 }

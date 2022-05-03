@@ -35,14 +35,20 @@ public class DatosPrueba {
         logica.agregarProducto(lentesSol);
 
         Comision c1 = new Comision(pA, caramelo, "caramelos1", 2f);
+        Comision c1V2 = new Comision(pA, caramelo, "caramelos2", 3f);
         Comision c2 = new Comision(pB, camisa, "camisas1", 8f);
         Comision c3 = new Comision(pC, computadora, "computadoras1", 15f);
         Comision c4 = new Comision(pD, cuaderno, "cuadernos1", 10f);
+        Comision c4V2 = new Comision(pD, cuaderno, "cuadernos2", 5f);
+        Comision c4V3 = new Comision(pD, cuaderno, "cuadernos3", 3f);
 
         logica.agregarComision(c1);
+        logica.agregarComision(c1V2);
         logica.agregarComision(c2);
         logica.agregarComision(c3);
         logica.agregarComision(c4);
+        logica.agregarComision(c4V2);
+        logica.agregarComision(c4V3);
 
         Cliente juan = new Cliente("12345678", "Juan");
         Cliente ana = new Cliente("13456789", "Ana");

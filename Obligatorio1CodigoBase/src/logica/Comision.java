@@ -27,18 +27,13 @@ public class Comision {
         this.proveedor = proveedor;
         this.porcentaje = porcentaje;
         this.producto = producto;
-
-        if (this.validar()) {
-            proveedor.agregarComision(this);
-            producto.agregarComision(this);
-        }
     }
-    
-    public static boolean getMostrarInfoCompleta(){
+
+    public static boolean getMostrarInfoCompleta() {
         return mostrarInfoCompleta;
     }
-    
-    public static void setMostrarInfoCompleta(boolean b){
+
+    public static void setMostrarInfoCompleta(boolean b) {
         mostrarInfoCompleta = b;
     }
 
@@ -90,7 +85,7 @@ public class Comision {
     }
 
     public float getTotalPagar() {
-        float porcentajeValor = porcentaje/100;
+        float porcentajeValor = porcentaje / 100;
         return (porcentajeValor * producto.getPrecio()) * getTotalUnidadesVendidas();
     }
 
@@ -101,9 +96,9 @@ public class Comision {
     @Override
     public String toString() {
         if (!mostrarInfoCompleta) {
-            return nombre + "| porcentaje: " + porcentaje + "| producto: " + producto.getNombre();
+            return nombre + "| porcentaje: " + porcentaje + "% | producto: " + producto.getNombre();
         } else {
-            return nombre + "|" + fechaCreacion + "| producto:" + producto.getNombre() + "| precio: $" + producto.getPrecio()+ "| total unidades vendidas: " + getTotalUnidadesVendidas() + "| porcentaje: %" + porcentaje + "| total a pagar comision: $" + getTotalPagar();
+            return nombre + "|" + fechaCreacion + "| producto:" + producto.getNombre() + "| precio: $" + producto.getPrecio() + "| total unidades vendidas: " + getTotalUnidadesVendidas() + "| porcentaje: " + porcentaje + "% | total a pagar comision: $" + getTotalPagar();
         }
     }
 

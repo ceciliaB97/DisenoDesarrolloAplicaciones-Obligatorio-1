@@ -12,11 +12,11 @@ public class ControlStock {
 
     protected ControlStock() {
     }
-    
-    public boolean buscarComisionesConMismoNombre(String nombre){
+
+    public boolean buscarComisionesConMismoNombre(String nombre) {
         boolean retorno = false;
-        for(Comision c: comisiones){
-            if(!c.getNombre().equals(nombre)){
+        for (Comision c : comisiones) {
+            if (!c.getNombre().equals(nombre)) {
                 retorno = false;
             }
         }
@@ -25,11 +25,11 @@ public class ControlStock {
 
     public void agregarFacturaEnComisiones(Factura f) {
         for (Comision c : comisiones) {
-            for(Producto p: f.getProductos()){
-                if(p.equals(c.getProducto()) && f.getFecha().after(c.getFechaCreacion())){
+            for (Producto p : f.getProductos()) {
+                if (p.equals(c.getProducto()) && f.getFecha().after(c.getFechaCreacion())) {
                     c.agregarFactura(f);
                 }
-            }     
+            }
         }
     }
 
@@ -59,13 +59,18 @@ public class ControlStock {
     }
 
     public void agregarComision(Comision c) {
-        if (!comisiones.contains(c)) {
+        if (!comisiones.contains(c) && c.validar()) {
             comisiones.add(c);
+            Proveedor prov = c.getProveedor();
+            Producto prod = c.getProducto();
+            prov.agregarComision(c);
+            prod.agregarComision(c);
         }
+
     }
 
     public void agregar(Proveedor unProveedor) {
-        if(!proveedores.contains(unProveedor)){
+        if (!proveedores.contains(unProveedor)) {
             proveedores.add(unProveedor);
         }
     }
