@@ -39,6 +39,14 @@ public class Proveedor {
             productos.add(p);
         }
     }
+    
+    public float montoTotalComisiones(){
+        float total = 0;
+        for(Comision c: comisiones){
+            total += c.getTotalPagar();
+        }
+        return total;
+    }
 
     @Override
     public String toString() {

@@ -62,6 +62,8 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         listaFacturasComision = new javax.swing.JList();
+        totalComisionesProveedor = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(721, 451));
@@ -105,6 +107,8 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
 
         jScrollPane4.setViewportView(listaFacturasComision);
 
+        jLabel1.setText("Total a pagar Proveedor");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,16 +116,20 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LabelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(totalComisionesProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(LabelComisiones, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,14 +160,18 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addComponent(jScrollPane2)
                     .addComponent(jScrollPane3))
-                .addGap(9, 9, 9)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(totalComisionesProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LabelNombrecomision)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -243,6 +255,7 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
 
     private void listaProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaProveedoresMouseClicked
         actualizarListaComisionesProductos();
+        mostrarTotalAPagarComisionesProveedor();
     }//GEN-LAST:event_listaProveedoresMouseClicked
 
     private void listaComisionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaComisionesMouseClicked
@@ -256,6 +269,7 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
     private javax.swing.JLabel LabelProductos;
     private javax.swing.JLabel LabelProveedores;
     private javax.swing.JButton buttonCrearComision;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -268,6 +282,7 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
     private javax.swing.JList listaProveedores;
     private javax.swing.JTextField textNombreComision;
     private javax.swing.JTextField textPorcentajeComision;
+    private javax.swing.JTextField totalComisionesProveedor;
     // End of variables declaration//GEN-END:variables
 
     private void filtrarProveedoresConComisiones() {
@@ -281,6 +296,7 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
     }
 
     private void inicializar() {
+        this.totalComisionesProveedor.setEditable(false);
         if (Comision.getMostrarInfoCompleta()) {
             filtrarProveedoresConComisiones();
             this.buttonCrearComision.setEnabled(false);
@@ -296,5 +312,14 @@ public class DialogoCrearConsultarComision extends javax.swing.JDialog {
 
     private void cargarListaProveedores(ArrayList<Proveedor> proveedores) {
         this.listaProveedores.setListData(proveedores.toArray());
+    }
+
+    private void mostrarTotalAPagarComisionesProveedor() {
+        Proveedor proveedorSeleccionado = (Proveedor) this.listaProveedores.getSelectedValue();
+        if (proveedorSeleccionado != null) {
+            Float montoF = proveedorSeleccionado.montoTotalComisiones();
+            String montoText = "$" + Float.toString(montoF);
+            this.totalComisionesProveedor.setText(montoText);
+        }
     }
 }
