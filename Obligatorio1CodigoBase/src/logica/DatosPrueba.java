@@ -64,6 +64,7 @@ public class DatosPrueba {
         f1.agregar(1, computadora);
 
         logica.agregarFactura(f1);
+        c1.agregarFactura(f1);
 
         Factura f2 = new Factura(ana);
         f2.agregar(400, caramelo);
